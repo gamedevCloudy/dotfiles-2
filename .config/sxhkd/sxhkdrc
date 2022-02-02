@@ -1,17 +1,45 @@
-super + p
+super + Escape
+	pkill -USR1 -x sxhkd
+
+Print
 	maim --select | tee ~/Pictures/ScreenShots/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png
 		
-super + shift + p
-	maim ~/Pictures/ScreenShots/screenshot_$(date +%s).png
+super + Print
+	maim | tee ~/Pictures/ScreenShots/$(date +%s).jpg | xclip -sel c -t image/jpg
 
 super + d
 	rofi -show run
 
-super + Return
-	kitty
+alt + d
+	dmenu_run
 
-super + i
+super + Return
+	st
+
+super + w
 	$HOME/.scripts/custom_emoji/custom_emoji.sh
 
-super + shift + i
+super + e
 	$HOME/.scripts/emojis/emoji.sh
+
+super + s
+	$HOME/.scripts/scripts_menu/scripts_menu.sh
+
+super + p
+	$HOME/.scripts/passmenu
+
+super + f
+	rofi -show file-browser-extended -show-icons -file-browser-hide-parent
+
+alt + f
+	i3-dmenu-desktop
+
+XF86AudioRaiseVolume 
+	pamixer -i 2 5%
+
+XF86AudioLowerVolume 
+	pamixer -d 2 5%
+
+XF86AudioMute 
+	pamixer -t
+
